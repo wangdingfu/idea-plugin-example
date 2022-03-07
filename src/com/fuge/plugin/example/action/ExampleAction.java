@@ -1,8 +1,10 @@
-package com.fuge.plugin.action;
+package com.fuge.plugin.example.action;
 
-import com.intellij.openapi.actionSystem.*;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.LangDataKeys;
+import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
 
@@ -10,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class GenApiAction extends AnAction {
+public class ExampleAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
@@ -36,9 +38,7 @@ public class GenApiAction extends AnAction {
                 }
             }
         }
-
     }
-
 
     /**
      * 获取类的所有属性
@@ -97,6 +97,4 @@ public class GenApiAction extends AnAction {
             return target instanceof SyntheticElement ? null : target;
         }
     }
-
-
 }

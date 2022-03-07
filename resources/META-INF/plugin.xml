@@ -1,6 +1,6 @@
 <idea-plugin>
   <id>com.fuge.plugin.example</id>
-  <name>LearningPlugin</name>
+  <name>PluginExample</name>
   <version>1.0</version>
   <vendor email="wangdingfu1024@163.com" url="http://www.wangdingfu.com">wangdingfu</vendor>
 
@@ -8,8 +8,7 @@
     这个项目主要是为了练习开发idea插件. 会将学习开发idea插件的过程记录下来
   </description>
 
-  <change-notes>
-  </change-notes>
+  <change-notes></change-notes>
 
   <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
   <idea-version since-build="173.0"/>
@@ -21,18 +20,22 @@
   <!-- 同时需要引入,否则2020版本找不到 com.intellij.psi -->
   <depends>com.intellij.modules.lang</depends>
   <depends>com.intellij.modules.java</depends>
+
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
-    <action id="test_plugin_id" class="com.fuge.plugin.action.TestAction" text="测试action">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
+    <action id="com.fuge.plugin.example.example_action" class="com.fuge.plugin.example.action.ExampleAction"
+            text="生成接口文档">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl Q"/>
     </action>
-    <action id="com.fuge.plugin.gen_api_action" class="com.fuge.plugin.action.GenApiAction" text="创建接口文档">
-      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    <action id="com.fuge.plugin.example.test_dialog_action" class="com.fuge.plugin.example.action.TestDialogAction"
+            text="测试弹框">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl W"/>
     </action>
   </actions>
 
